@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+import { getCollection } from "astro:content";
+const posts = await getCollection("articles");
+---
+
+<BaseLayout seo={{ title: `Blog — ${site.title}`, description: `Nuestras noticias y recursos sobre TCA y obesidad.` }}>
+  <main class="mx-auto max-w-5xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Blog</h1>
+    <p class="mt-2">Artículos y recursos para familias y profesionales.</p>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => (
+        <article class="rounded border p-4">
+          <a href={`/blog/${post.slug}`} class="text-xl font-semibold">{post.data.title}</a>
+          <p class="mt-2 text-sm text-slate-600">{post.data.description}</p>
+          <p class="mt-2 text-xs text-slate-500">{new Date(post.data.date).toLocaleDateString("es-ES")}</p>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

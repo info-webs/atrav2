@@ -1,4 +1,4 @@
-# Versatile Astro Template for Multi-Page Websites
+# ATRA Y Obesidad Salamanca — Sitio web (adaptado desde DataNova)
 
 ![DataNova](https://github.com/user-attachments/assets/b2ca99ee-8161-4755-9b66-205993ef2910)
 

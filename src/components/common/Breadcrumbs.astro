@@ -1,0 +1,14 @@
+---
+export interface Crumb { href: string; label: string }
+const crumbs = Astro.props.crumbs as Crumb[];
+---
+<nav aria-label="breadcrumb" class="text-sm text-slate-500">
+  <ol class="flex gap-2">
+    {crumbs.map((c, i) => (
+      <li class="flex items-center">
+        {i > 0 ? <span class="mx-1">/</span> : null}
+        <a href={c.href} class="underline">{c.label}</a>
+      </li>
+    ))}
+  </ol>
+</nav>

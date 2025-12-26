@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+import { getCollection } from "astro:content";
+const { slug } = Astro.params;
+const post = await getCollection("articles").then((c) => c.find((p) => p.slug === slug));
+if (!post) throw new Error("Post not found");
+---
+
+<BaseLayout seo={{ title: `${post.data.title} — ${site.title}`, description: post.data.description }}>
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    ---
+    import Breadcrumbs from "@common/Breadcrumbs.astro";
+    ---
+    <Breadcrumbs crumbs={[{ href: "/blog", label: "Blog" }, { href: `/blog/${post.slug}`, label: post.data.title }]} />
+    <h1 class="mt-4 text-3xl font-bold">{post.data.title}</h1>
+    <p class="mt-2 text-sm text-slate-500">{new Date(post.data.date).toLocaleDateString("es-ES")}</p>
+
+    <article class="mt-6 prose max-w-none">
+      <Content content={post.body} />
+    </article>
+
+  </main>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+import ContactForm from "@components/forms/ContactForm.svelte";
+---
+
+<BaseLayout seo={{ title: `Contactar — ${site.title}`, description: `Ponte en contacto con ${site.title}. Teléfono, dirección y formulario.` }}>
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Contactar</h1>
+    <p class="mt-2">Puedes pedir orientación o pedir cita previa mediante el formulario o por teléfono.</p>
+
+    <section class="mt-6 grid gap-6 sm:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-semibold">Formulario</h2>
+        <ContactForm client:load />
+      </div>
+
+      <aside>
+        <h2 class="text-xl font-semibold">Datos de contacto</h2>
+        <p class="mt-2">Teléfono: <a href={`tel:${site.phone}`} class="underline">{site.phone}</a></p>
+        <p class="mt-2">Dirección: <span>{site.address.street}, {site.address.locality}</span></p>
+        <p class="mt-2">Horario: Cita previa / consulta por mensaje.</p>
+
+        <h3 class="mt-4 text-sm font-semibold">Redes</h3>
+        <ul class="mt-2">
+          <li><a href={site.social.instagram} target="_blank" rel="noopener noreferrer" class="underline">Instagram</a></li>
+          <li><a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="underline">Facebook</a></li>
+        </ul>
+
+        <h3 class="mt-6 text-sm font-semibold">Mapa</h3>
+        <p class="text-sm mt-2">Mapa embebido opcional. Si no se carga, usa nuestra dirección arriba.</p>
+      </aside>
+    </section>
+  </main>
+</BaseLayout>

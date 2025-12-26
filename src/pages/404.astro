@@ -6,59 +6,52 @@ import type { WithContext, Thing } from "schema-dts";
 
 export const pageContent = {
   errorCode: "404",
-  title: "This page does not exist",
-  description: "Sorry, we couldn't find the page you're looking for.",
-  goBackLabel: "Go back",
+  title: "Página no encontrada",
+  description: "Lo sentimos, no hemos encontrado la página que buscas.",
+  goBackLabel: "Volver",
 };
 
 const resources = [
   {
-    title: "Knowledge Base",
-    description: "Find answers to common questions.",
+    title: "Inicio",
+    description: "Volver a la página principal.",
     icon: "info",
-    link: "/support/knowledge-base",
+    link: "/",
   },
   {
-    title: "Articles",
-    description: "Explore insights and best practices.",
+    title: "Blog",
+    description: "Explora artículos y recursos.",
     icon: "articles",
-    link: "/support/articles",
+    link: "/blog",
   },
   {
-    title: "Whitepapers",
-    description: "Read in-depth technical reports.",
+    title: "Contacto",
+    description: "Ponte en contacto con nosotros.",
     icon: "blankDocument",
-    link: "/support/whitepapers",
-  },
-  {
-    title: "Reference",
-    description: "Browse technical documentation.",
-    icon: "documentMagnifyingGlass",
-    link: "/support/reference",
+    link: "/contactar",
   },
 ];
 
 const seo = {
-  title: "Page Not Found - DataNova",
+  title: "Página no encontrada - ATRA Y Obesidad",
   description:
-    "Sorry, we couldn't find the page you're looking for. Explore our resources or go back to the homepage.",
+    "Lo sentimos, no hemos encontrado la página que buscas. Vuelve a la página principal o consulta nuestro blog.",
 };
 
 const schema: WithContext<Thing> = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  inLanguage: "en-US",
+  inLanguage: "es-ES",
   "@id": Astro.url.href,
   url: Astro.url.href,
-  name: "Page Not Found",
+  name: "Página no encontrada",
   description:
-    "Sorry, we couldn't find the page you're looking for. Explore our resources or go back to the homepage.",
+    "Lo sentimos, no hemos encontrado la página que buscas. Vuelve a la página principal o consulta nuestro blog.",
   isPartOf: {
     "@type": "WebSite",
     url: `${Astro.site}`,
-    name: "DataNova",
-    description:
-      "DataNova Analytics Inc. provides advanced analytics for Excel to help businesses unlock actionable insights quickly with no coding required.",
+    name: "ATRA Y Obesidad",
+    description: "Asociación ATRA Y Obesidad Salamanca",
   },
 };
 ---

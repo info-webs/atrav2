@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+---
+
+<BaseLayout seo={{ title: `¿Qué son los TCA? — ${site.title}`, description: `Información sobre Trastornos de la Conducta Alimentaria y señales de alerta.` }}>
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">¿Qué son los Trastornos de la Conducta Alimentaria (TCA)?</h1>
+    <p class="mt-4">Son alteraciones significativas en los hábitos alimentarios relacionadas con el control del peso y la imagen corporal. Incluyen insatisfacción corporal y pensamientos distorsionados sobre la comida, el cuerpo y el peso. Tienen un origen multifactorial y requieren tratamiento multidisciplinar.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Señales de alerta</h2>
+    <ul class="mt-2 list-disc pl-6">
+      <li>Cambios pronunciados en hábitos alimentarios.</li>
+      <li>Preocupación excesiva por la imagen corporal y el peso.</li>
+      <li>Retirada social o cambios emocionales repentinos.</li>
+      <li>Conductas alimentarias secretas o rituales relacionados con la comida.</li>
+    </ul>
+
+    <h2 class="mt-8 text-2xl font-semibold">Cómo podemos ayudarte</h2>
+    <p class="mt-2">Ofrecemos orientación, apoyo y derivación a recursos especializados. Si crees que alguien puede estar en riesgo, ponte en contacto con nosotros para recibir orientación.</p>
+
+    <div class="mt-6">
+      <a href="/contactar" class="rounded bg-emerald-600 px-4 py-2 text-white">Contactar para orientación</a>
+    </div>
+  </main>
+</BaseLayout>

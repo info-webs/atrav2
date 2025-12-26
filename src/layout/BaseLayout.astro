@@ -5,7 +5,9 @@ import { ClientRouter } from "astro:transitions";
 import { SEO, type Props as SEOProps } from "astro-seo";
 import { Schema } from "astro-seo-schema";
 import type { WithContext, Thing } from "schema-dts";
+import { site } from "@content/site";
 import { AstroFont } from "astro-font";
+import NoticeBanner from "@common/NoticeBanner.astro";
 import "@styles/global.css";
 
 interface Props {
@@ -15,54 +17,64 @@ interface Props {
 
 // Extract `seo` and `schema` from properties or define defaults
 const { seo, schema } = Astro.props;
-const socialImage = `${Astro.site}social.png`; // Path to the default social sharing image
+const socialImage = site.defaultImage || `${Astro.site}social.png`; // Path to the default social sharing image
 
 // Define default JSON-LD Schema.org data if no schema is passed
 const defaultSchema: WithContext<Thing> = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  inLanguage: "en-US",
+  inLanguage: "es-ES",
   "@id": Astro.url.href,
   url: Astro.url.href,
-  name: "DataNova",
-  description:
-    "Unlock powerful data insights with DataNova's advanced analytics suite for Excel. Visualize, analyze, and make data-driven decisions in minutes with seamless Excel integration, AI-powered analysis, and predictive forecasting models.",
+  name: site.title,
+  description: site.description,
   isPartOf: {
     "@type": "WebSite",
-    url: `${Astro.site}`,
-    name: "DataNova",
-    description:
-      "DataNova Analytics Inc. provides advanced analytics for Excel to help businesses unlock actionable insights quickly with no coding required.",
+    url: `${site.url}`,
+    name: site.title,
+    description: site.description,
+  },
+  mainEntity: {
+    "@type": "Organization",
+    name: site.title,
+    url: site.url,
+    telephone: site.phone,
+    sameAs: [site.social.instagram, site.social.facebook],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      addressLocality: site.address.locality,
+      addressRegion: site.address.region,
+      postalCode: site.address.postalCode,
+      addressCountry: site.address.country,
+    },
   },
 };
 ---
 
-<html lang="en" class="scroll-pt-32">
+<html lang="es" class="scroll-pt-32">
   <head>
     {/* SEO Meta Tags */}
     <SEO
       charset="utf-8"
-      title={seo?.title ?? "DataNova"}
-      description={seo?.description ??
-        "Unlock powerful data insights with DataNova's advanced analytics suite for Excel. Visualize, analyze, and make data-driven decisions in minutes with seamless Excel integration, AI-powered analysis, and predictive forecasting models."}
+      title={seo?.title ?? site.title}
+      description={seo?.description ?? site.description}
       openGraph={{
         basic: {
-          title: "DataNova - Unlock Insights from Your Excel Data",
+          title: site.title,
           type: "website",
           image: socialImage,
         },
         optional: {
-          description:
-            "Transform your Excel workspace with DataNova's powerful analytics suite. Get insights, predictive models, and visualizations in minutes with no coding required.",
+          description: site.description,
         },
       }}
       twitter={{
         card: "summary_large_image",
-        title: "DataNova - Unlock Insights from Your Excel Data",
-        description:
-          "Transform your Excel workspace with DataNova's powerful analytics suite. Visualize and analyze data quickly with no coding required.",
+        title: site.title,
+        description: site.description,
         image: socialImage,
-        imageAlt: "DataNova Logo.",
+        imageAlt: `${site.title} - ${site.description}`,
       }}
       extend={{
         link: [
@@ -120,6 +132,9 @@ const defaultSchema: WithContext<Thing> = {
   </head>
   <body class="bg-off-white selection:bg-teal-400 selection:text-slate-700">
     <Navbar />
+    <div class="mx-auto max-w-6xl px-4 mt-4">
+      <NoticeBanner />
+    </div>
 
     <main>
       <slot />

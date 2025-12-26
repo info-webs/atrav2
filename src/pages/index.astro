@@ -1,23 +1,62 @@
 ---
 import BaseLayout from "@layout/BaseLayout.astro";
-import Hero from "@sections/HeroSection.astro";
-import FeatureShowcase from "@sections/FeatureShowcase.astro";
-// import FeatureBento from "@sections/FeatureBento.astro";
-import FeatureAnimated from "@sections/FeatureAnimated.astro";
-import FeatureGrid from "@sections/FeatureGrid.astro";
-import CTA from "@sections/CTA.astro";
+import { site } from "@content/site";
+import Hero from "@common/Hero.astro";
+import NoticeBanner from "@common/NoticeBanner.astro";
+import WhatsAppButton from "@ui/WhatsAppButton.astro";
 ---
 
-<BaseLayout>
-  <Hero />
+<BaseLayout seo={{ title: `${site.title} — Acompañamiento y orientación`, description: site.description }}>
+  <NoticeBanner />
 
-  <FeatureShowcase />
+  <Hero title="Acompañamiento, orientación y prevención en TCA y obesidad en Salamanca" subtitle="Somos una asociación sin ánimo de lucro creada por familiares. Te ayudamos a comprender la situación y a encontrar recursos y apoyo." ctaPrimary={{ text: "Pedir orientación", href: "/contactar" }} ctaSecondary={{ text: "Conocer la asociación", href: "/quienes-somos" }} />
 
-  {/* <FeatureBento /> */}
+  <section class="mt-8">
+    <div class="mx-auto max-w-5xl px-4">
+      <h2 class="text-2xl font-semibold">Qué hacemos</h2>
+      <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded border p-4">
+          <h3 class="font-semibold">Orientación a familias</h3>
+          <p class="mt-2 text-sm">Acompañamiento telefónico y presencial para familiares que buscan información y apoyo.</p>
+        </article>
+        <article class="rounded border p-4">
+          <h3 class="font-semibold">Sensibilización</h3>
+          <p class="mt-2 text-sm">Campañas y actividades para visibilizar TCA y obesidad en la comunidad.</p>
+        </article>
+        <article class="rounded border p-4">
+          <h3 class="font-semibold">Escuela de padres</h3>
+          <p class="mt-2 text-sm">Sesiones mensuales centradas en comunicación, emociones y resolución de conflictos.</p>
+        </article>
+        <article class="rounded border p-4">
+          <h3 class="font-semibold">Actividades de bienestar</h3>
+          <p class="mt-2 text-sm">Yoga suave y otras actividades para promover la relajación y el autocuidado.</p>
+        </article>
+      </div>
 
-  <FeatureAnimated />
+      <h2 class="mt-8 text-2xl font-semibold">Por qué es importante</h2>
+      <p class="mt-2 text-sm">Los trastornos de la conducta alimentaria (TCA) y la obesidad son problemas que afectan a la persona, la familia y su entorno. Requieren un enfoque multidisciplinar y un soporte continuado.</p>
 
-  <FeatureGrid />
+      <h2 class="mt-8 text-2xl font-semibold">Actividades destacadas</h2>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <div class="rounded border p-3">
+          <h4 class="font-semibold">Escuela de Padres</h4>
+          <p class="text-sm">1 martes al mes — sesiones centradas en dinámicas familiares.</p>
+        </div>
+        <div class="rounded border p-3">
+          <h4 class="font-semibold">Yoga</h4>
+          <p class="text-sm">Viernes 17:45 — Casa de las Asociaciones.</p>
+        </div>
+        <div class="rounded border p-3">
+          <h4 class="font-semibold">Día Internacional</h4>
+          <p class="text-sm">Evento anual de sensibilización y encuentro comunitario.</p>
+        </div>
+      </div>
 
-  <CTA />
+      <div class="mt-8 text-center">
+        <a href="/contactar" class="rounded bg-emerald-600 px-4 py-2 text-white">No estás solo/a. Escríbenos.</a>
+      </div>
+    </div>
+  </section>
+
+  <WhatsAppButton />
 </BaseLayout>

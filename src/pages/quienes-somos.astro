@@ -1,0 +1,33 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+---
+
+<BaseLayout seo={{ title: `Quiénes somos — ${site.title}`, description: `Historia, misión, visión, valores y objetivos de ${site.title}.` }}>
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Quiénes somos</h1>
+    <p class="mt-4">ATRA Y Obesidad Salamanca es una asociación sin ánimo de lucro creada en septiembre de 2019 por familiares de personas afectadas por trastornos de la conducta alimentaria (TCA) y obesidad. Nuestra finalidad es la formación, prevención, sensibilización y concienciación social y política sobre estas realidades.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Misión</h2>
+    <p class="mt-2">Fomentar el bienestar y mejorar la calidad de vida de las personas afectadas por TCA/obesidad y de sus familias a través de información, orientación y apoyo continuado.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Visión</h2>
+    <p class="mt-2">Que la información y el asesoramiento estén disponibles y accesibles a largo plazo para quienes lo necesiten.</p>
+
+    <h2 class="mt-8 text-2xl font-semibold">Valores</h2>
+    <ul class="mt-2 list-disc pl-6">
+      <li>Compromiso</li>
+      <li>Trabajo en equipo</li>
+      <li>Colaboración</li>
+    </ul>
+
+    <h2 class="mt-8 text-2xl font-semibold">Objetivos</h2>
+    <ul class="mt-2 list-disc pl-6">
+      <li>Informar y apoyar a personas afectadas y a sus familias.</li>
+      <li>Atención telefónica y presencial.</li>
+      <li>Derivación a recursos públicos y privados.</li>
+      <li>Concienciación social y sensibilización.</li>
+      <li>Recaudación de fondos para ayudar a quienes no puedan asumir costes.</li>
+    </ul>
+  </main>
+</BaseLayout>

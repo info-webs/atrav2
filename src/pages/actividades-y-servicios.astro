@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layout/BaseLayout.astro";
+import { site } from "@content/site";
+---
+
+<BaseLayout seo={{ title: `Actividades y servicios — ${site.title}`, description: `Atención, escuela de padres, yoga y banco de libros en ${site.title}.` }}>
+  <main class="mx-auto max-w-3xl px-4 py-16">
+    <h1 class="text-3xl font-bold">Actividades y servicios</h1>
+
+    <h2 class="mt-6 text-2xl font-semibold">Atención y seguimiento</h2>
+    <p class="mt-2">Atención telefónica y presencial a familiares que necesitan orientación o seguimiento.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold">Escuela de padres</h2>
+    <p class="mt-2">Sesiones terapéuticas y dinámicas (1 martes al mes) centradas en comunicación, resolución de conflictos y gestión emocional.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold">Yoga</h2>
+    <p class="mt-2">Yoga suave, restaurativo y respiración consciente. Viernes 17:45 en la Casa de las Asociaciones. Beneficios: reducción de estrés, flexibilidad y relajación.</p>
+
+    <h2 class="mt-6 text-2xl font-semibold">Banco de libros</h2>
+    <p class="mt-2">Préstamo gratuito de material y libros para socios y personas interesadas.</p>
+  </main>
+</BaseLayout>
